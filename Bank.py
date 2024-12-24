@@ -51,8 +51,13 @@ tot_dollars = str(dollars) + "." + str(cents)
 
 # Print collected user_inputs
 acct = Deposit(dollars, cents)
+
+# Call box value for acct
 sep_acct(acct)
+
+# Build file to save data
 file_manager()
+
 # Read file
 # fr = open("user_data.txt", "r")
 # print(fr.read)
