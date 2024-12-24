@@ -55,23 +55,42 @@ def read_file():
     if read_file == "Yes":
         # Read file
         fr = open("user_data.txt", "r")
-        lines = fr.readlines()
-        for i in range(1, len(lines), 2):
-            print(lines[i].rstrip("\n"))
+        print(fr.read())
+        # last_bal = lines[-1]
+        # print(last_bal)
+        # for i in range(1, len(lines), 2):
+        #     print(lines[i].rstrip("\n"))
     elif read_file == "No":
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
-    fr.close()
+
+
+def last_bal():
+    bal_input = input(
+        'Do you wish to read the previous balance? "Yes" or "No" '
+    ).capitalize()
+
+    if bal_input == "Yes":
+        fr = open("user_data.txt", "r")
+        lines = fr.readlines()
+        last_bal = lines[-1]
+        print(last_bal)
+    elif bal_input == "No":
+        print("No problem, the file was saved to your directory!")
+    else:
+        print("Error reading file")
 
 
 # Print date
 date()
 # User Data Dictionary
 user_data = {}
+# Set app to true
+bal_calc = True
+
 # Collect User Data
 data_format()
-
 # Inputs
 dollars = int(input("How many dollars do you have? "))
 cents = int(input("How much change do you have? "))
@@ -89,3 +108,5 @@ file_manager()
 
 # Prompt to read file
 read_file()
+
+last_bal()
