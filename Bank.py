@@ -24,6 +24,14 @@ def sep_acct(val):
     print("=" * 45)
 
 
+def date():
+    # Todays date
+    formatted_date = today.strftime("%m/%d/%Y")
+    formatted_time = now.strftime("%I:%M:%S %p")
+    print("Today is:", formatted_date)
+    print("It is currently:", formatted_time)
+
+
 def data_format():
     # Format data for file
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
@@ -45,14 +53,6 @@ def file_manager():
     f.close()
 
 
-def date():
-    # Todays date
-    formatted_date = today.strftime("%m/%d/%Y")
-    formatted_time = now.strftime("%I:%M:%S %p")
-    print("Today is:", formatted_date)
-    print("It is currently:", formatted_time)
-
-
 def read_file():
     read_file = input('Do you wish to read the saved file? "Yes" or "No" ').capitalize()
 
@@ -64,6 +64,7 @@ def read_file():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
+    f.close()
 
 
 def last_bal():
@@ -80,6 +81,7 @@ def last_bal():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
+    f.close()
 
 
 def bal_history():
