@@ -59,14 +59,14 @@ class FileHandler:
 
         # Check input with contents
         if parameter in content:
-            print("Input is in database:", str(parameter))
+            print("Input is in database:", f"'{parameter}'")
             csplit = content.split()
-            # print(csplit)
+            # print(f"'{parameter}'")
             # Pick file content
-            checker = csplit[1] + csplit[3]
-            print(checker)
+            name_checker = csplit[1][1:-2:1] + " " + csplit[3][1:-2:1]
+            print(f"'{name_checker}'")
         elif parameter not in content:
-            print(str(parameter), "is not in the file.")
+            print(f"'{parameter}'", "is not in the file.")
         else:
             print("Error is present")
 
@@ -123,11 +123,16 @@ def date():
 
 def data_format():
     # Format data for file
+    # NOTE: rework data structure, inputs set to var before passing to user_data is needed, works for current testing though.
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
     user_data["last_name"] = input("Enter your Last Name: ").capitalize()
     user_data["age"] = int(input("Enter your age: "))
     user_data["date"] = today.strftime("%m/%d/%Y")
     user_data["time"] = now.strftime("%I:%M:%S %p")
+
+
+def user_input():
+    pass
 
 
 # Print date
