@@ -119,11 +119,18 @@ def date():
 def data_format():
     # Format data for file
     # NOTE: rework data structure, inputs set to var before passing to user_data is needed, works for current testing though.
-    user_data["first_name"] = input("Enter your First Name: ").capitalize()
-    user_data["last_name"] = input("Enter your Last Name: ").capitalize()
-    user_data["age"] = int(input("Enter your age: "))
-    user_data["date"] = today.strftime("%m/%d/%Y")
-    user_data["time"] = now.strftime("%I:%M:%S %p")
+    fname = input("Enter your First Name: ").capitalize()
+    lname = input("Enter your Last Name: ").capitalize()
+    age = int(input("Enter your age: "))
+    date = today.strftime("%m/%d/%Y")
+    curr_time = now.strftime("%I:%M:%S %p")
+
+    # Set data with input variable
+    user_data["first_name"] = fname
+    user_data["last_name"] = lname
+    user_data["age"] = age
+    user_data["date"] = date
+    user_data["time"] = curr_time
 
 
 def user_input():
