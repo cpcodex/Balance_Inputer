@@ -41,7 +41,7 @@ def data_format():
     user_data["time"] = now.strftime("%I:%M:%S %p")
 
 
-def file_manager():
+def write_text():
     # Write file into txt file
 
     # open user_data file
@@ -64,7 +64,7 @@ def read_file():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
-    f.close()
+    fr.close()
 
 
 def last_bal():
@@ -81,7 +81,7 @@ def last_bal():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
-    f.close()
+    fr.close()
 
 
 def bal_history():
@@ -122,7 +122,7 @@ acct = Deposit(dollars, cents)
 sep_acct(acct)
 
 # Build file to save data
-file_manager()
+write_text()
 
 # Prompt to read file
 read_file()
