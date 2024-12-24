@@ -50,7 +50,7 @@ class FileHandler:
 
     def find_file_param(self):
         # Finds paramater inside .txt file to compare to database.
-        parameter = input('Do you wish to read the previous balance? "Yes" or "No" ')
+        parameter = input('which file would you like to access? "Yes" or "No" ')
         print("=" * 45)
 
         # Read file contents
@@ -60,6 +60,10 @@ class FileHandler:
         # Check input with contents
         if parameter in content:
             print("Input is in database:", str(parameter))
+            csplit = content.split()
+            # print(csplit)
+            # Pick file content
+            print(csplit[str(parameter)])
         elif parameter not in content:
             print(str(parameter), "is not in the file.")
         else:
@@ -87,11 +91,11 @@ class FileHandler:
         bal_hist = input(
             'Do you want to view your balance history? "Yes" or "No" '
         ).capitalize()
-        print("=" * 45)
 
         if bal_hist == "Yes":
             fr = open(self.file_name, "r")
             lines = fr.readlines()
+            print("=" * 45)
             for i in range(1, len(lines), 2):
                 print(lines[i].rstrip("\n"))
             print()
