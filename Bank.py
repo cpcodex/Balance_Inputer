@@ -3,7 +3,7 @@
 from datetime import date, datetime
 
 today = date.today()
-now = datetime.datetime.now()
+now = datetime.now()
 
 
 class Deposit:
@@ -29,7 +29,8 @@ def data_format():
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
     user_data["last_name"] = input("Enter your Last Name: ").capitalize()
     user_data["age"] = int(input("Enter your age: "))
-    user_data["date"] = today.strftime("%m/%d/%Y, %I:%M:%S %p")
+    user_data["date"] = today.strftime("%m/%d/%Y")
+    user_data["time"] = now.strftime("%I:%M:%S %p")
 
 
 def file_manager():
@@ -47,7 +48,9 @@ def file_manager():
 def date():
     # Todays date
     formatted_date = today.strftime("%m/%d/%Y")
+    formatted_time = now.strftime("%I:%M:%S %p")
     print("Today is:", formatted_date)
+    print("It is currently:", formatted_time)
 
 
 def read_file():
