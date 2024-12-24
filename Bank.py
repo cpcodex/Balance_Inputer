@@ -1,5 +1,5 @@
 # NOTE: Note-bar is used to pick up where left off in previous session
-# NOTE:
+# TODO: Finished balance history, continue implementing data collection, access, and cleanup code; reconsider how we store and access data.
 from datetime import date, datetime
 
 today = date.today()
@@ -64,7 +64,6 @@ def read_file():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
-    fr.close()
 
 
 def last_bal():
@@ -81,7 +80,6 @@ def last_bal():
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
-    fr.close()
 
 
 def bal_history():
