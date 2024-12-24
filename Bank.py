@@ -91,7 +91,7 @@ def bal_history():
         fr = open("user_data.txt", "r")
         lines = fr.readlines()
         for i in range(1, len(lines), 2):
-            print(lines[i].rstrip("\n"), user_data["date"])
+            print(lines[i].rstrip("\n"))
     elif bal_hist == "No":
         print("No problem, the file was saved to your directory!")
     else:
