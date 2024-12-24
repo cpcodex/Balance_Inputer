@@ -4,9 +4,9 @@
 
 # TODO: Create classes
 class Deposit:
-    def __init__(self, dollars, cents):
-        self.dollars = dollars
-        self.cents = cents
+    def __init__(self, dol, cts):
+        self.dollars = dol
+        self.cents = cts
 
     def __str__(self):
         return "You deposited ${}.{:02} to your total balance.".format(
