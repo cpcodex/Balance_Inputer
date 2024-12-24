@@ -30,6 +30,7 @@ def data_format():
 def file_manager():
     # Write file into txt file
 
+    # open user_data file
     f = open("user_data.txt", "a")
     # Write data_format Dictionary to file
     f.write(f"{str(user_data)}\n")
@@ -51,15 +52,7 @@ tot_dollars = str(dollars) + "." + str(cents)
 # Print collected user_inputs
 acct = Deposit(dollars, cents)
 sep_acct(acct)
-
-
-# open user_data file
-f = open("user_data.txt", "a")
-# Write data_format Dictionary to file
-f.write(f"{str(user_data)}\n")
-# write inputs to File
-f.write(f"Balance: ${tot_dollars}\n")
-
+file_manager()
 # Read file
 # fr = open("user_data.txt", "r")
 # print(fr.read)
