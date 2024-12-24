@@ -1,5 +1,8 @@
 # NOTE: Note-bar is used to pick up where left off in previous session
 # NOTE:
+from datetime import date
+
+today = date.today()
 
 
 class Deposit:
@@ -38,6 +41,13 @@ def file_manager():
     f.write(f"Balance: ${tot_dollars}\n")
 
 
+def date():
+    # Todays date
+    formatted_date = today.strftime("%m/%d/%Y")
+    print("Today is:", formatted_date)
+
+
+date()
 # User Data Dictionary
 user_data = {}
 # Collect User Data
