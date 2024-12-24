@@ -13,24 +13,28 @@ class Deposit:
         )
 
 
-# Function to create box around output
 def sep_acct(val):
+    # Function to create box around output
     print("=" * 45)
     print(val)
     print("=" * 45)
 
 
-# Format data for file
 def data_format():
+    # Format data for file
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
     user_data["last_name"] = input("Enter your Last Name: ").capitalize()
     user_data["age"] = int(input("Enter your age: "))
 
 
-# Saves user input into a list
-def save_input(user):
-    user = []
-    user.append(user)
+def file_manager():
+    # Write file into txt file
+
+    f = open("user_data.txt", "a")
+    # Write data_format Dictionary to file
+    f.write(f"{str(user_data)}\n")
+    # write inputs to File
+    f.write(f"Balance: ${tot_dollars}\n")
 
 
 # User Data Dictionary
