@@ -1,8 +1,9 @@
 # NOTE: Note-bar is used to pick up where left off in previous session
 # NOTE:
-from datetime import date
+from datetime import date, datetime
 
 today = date.today()
+now = datetime.datetime.now()
 
 
 class Deposit:
@@ -28,7 +29,7 @@ def data_format():
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
     user_data["last_name"] = input("Enter your Last Name: ").capitalize()
     user_data["age"] = int(input("Enter your age: "))
-    user_data["date"] = today.strftime("%m/%d/%Y")
+    user_data["date"] = today.strftime("%m/%d/%Y, %I:%M:%S %p")
 
 
 def file_manager():
