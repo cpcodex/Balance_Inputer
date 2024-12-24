@@ -27,7 +27,7 @@ class FileHandler:
         # open user_data file
         f = open(self.file_name, "a")
         # Write data_format Dictionary to file
-        f.write(f"{str(user_data)}\n")
+        f.write(f"{user_data}\n")
         # write inputs to File
         f.write(f"Balance: ${tot_dollars}\n")
         f.close()
@@ -50,7 +50,7 @@ class FileHandler:
 
     def find_file_param(self):
         # Finds paramater inside .txt file to compare to database.
-        parameter = input('which file would you like to access? "Yes" or "No" ')
+        parameter = input("which file would you like to access? ")
         print("=" * 45)
 
         # Read file contents
@@ -63,7 +63,8 @@ class FileHandler:
             csplit = content.split()
             # print(csplit)
             # Pick file content
-            print(csplit[str(parameter)])
+            checker = csplit[1] + csplit[3]
+            print(checker)
         elif parameter not in content:
             print(str(parameter), "is not in the file.")
         else:
