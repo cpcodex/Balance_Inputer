@@ -1,5 +1,5 @@
-# NOTE:
-# TODO: Finished balance history, continue implementing data collection, access, and cleanup code; reconsider how we store and access data.
+# NOTE: reconsider how we store and access data.
+# TODO: continue implementing data collection, access, and cleanup code
 from datetime import date, datetime
 
 today = date.today()
@@ -48,6 +48,23 @@ class FileHandler:
         else:
             print("Error reading file")
 
+    def find_file_param(self):
+        # Finds paramater inside .txt file to compare to database.
+        parameter = input('Do you wish to read the previous balance? "Yes" or "No" ')
+        print("=" * 45)
+
+        # Read file contents
+        fr = open(self.file_name, "r")
+        content = fr.read()
+
+        # Check input with contents
+        if parameter in content:
+            print("Input is in database:", str(parameter))
+        elif parameter not in content:
+            print(str(parameter), "is not in the file.")
+        else:
+            print("Error is present")
+
     def last_bal(self):
         # Prompts the user to read the last balance from the file and displays it if the user agrees.
         bal_input = input(
@@ -70,13 +87,14 @@ class FileHandler:
         bal_hist = input(
             'Do you want to view your balance history? "Yes" or "No" '
         ).capitalize()
-        print()
+        print("=" * 45)
 
         if bal_hist == "Yes":
             fr = open(self.file_name, "r")
             lines = fr.readlines()
             for i in range(1, len(lines), 2):
                 print(lines[i].rstrip("\n"))
+            print()
         elif bal_hist == "No":
             print("No problem, the file was saved to your directory!")
         else:
@@ -117,8 +135,8 @@ bal_calc = True
 # Collect User Data
 data_format()
 # Inputs
-dollars = int(input("How many dollars do you have? "))
-cents = int(input("How much change do you have? "))
+dollars = int(input("How many dollars are you depositing? "))
+cents = int(input("How much change do you have to deposit? "))
 # Collect User Input as strings
 tot_dollars = str(dollars) + "." + str(cents)
 
@@ -135,3 +153,4 @@ if __name__ == "__main__":
     handler.read_file()
     handler.last_bal()
     handler.bal_history()
+    handler.find_file_param()
