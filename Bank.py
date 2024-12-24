@@ -125,6 +125,8 @@ file_manager()
 # Prompt to read file
 read_file()
 
+# Prompt for last balance
 last_bal()
 
+# Prompt for balance history
 bal_history()
