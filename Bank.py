@@ -118,7 +118,7 @@ bal_calc = True
 data_format()
 # Inputs
 dollars = int(input("How many dollars do you have? "))
-cents = int(input("How much change do you have?"))
+cents = int(input("How much change do you have? "))
 # Collect User Input as strings
 tot_dollars = str(dollars) + "." + str(cents)
 
