@@ -56,10 +56,6 @@ def read_file():
         # Read file
         fr = open("user_data.txt", "r")
         print(fr.read())
-        # last_bal = lines[-1]
-        # print(last_bal)
-        # for i in range(1, len(lines), 2):
-        #     print(lines[i].rstrip("\n"))
     elif read_file == "No":
         print("No problem, the file was saved to your directory!")
     else:
@@ -77,6 +73,22 @@ def last_bal():
         last_bal = lines[-1]
         print(last_bal)
     elif bal_input == "No":
+        print("No problem, the file was saved to your directory!")
+    else:
+        print("Error reading file")
+
+
+def bal_history():
+    bal_hist = input(
+        'Do you want to view your balance history? "Yes" or "No" '
+    ).capitalize()
+
+    if bal_hist == "Yes":
+        fr = open("user_data.txt", "r")
+        lines = fr.readlines()
+        for i in range(1, len(lines), 2):
+            print(lines[i].rstrip("\n"), user_data["date"])
+    elif bal_hist == "No":
         print("No problem, the file was saved to your directory!")
     else:
         print("Error reading file")
@@ -110,3 +122,5 @@ file_manager()
 read_file()
 
 last_bal()
+
+bal_history()
