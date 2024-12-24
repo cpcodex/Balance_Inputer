@@ -1,4 +1,4 @@
-# NOTE: Note-bar is used to pick up where left off in previous session
+# NOTE:
 # TODO: Finished balance history, continue implementing data collection, access, and cleanup code; reconsider how we store and access data.
 from datetime import date, datetime
 
@@ -20,6 +20,17 @@ class Deposit:
 class FileHandler:
     def __init__(self, file_name):
         self.file_name = file_name
+
+    def write_file(self):
+        # Write file into txt file
+
+        # open user_data file
+        f = open(self.file_name, "a")
+        # Write data_format Dictionary to file
+        f.write(f"{str(user_data)}\n")
+        # write inputs to File
+        f.write(f"Balance: ${tot_dollars}\n")
+        f.close()
 
     def read_file(self):
         # Prompts the user to read the file and displays its contents if the user agrees.
@@ -93,18 +104,6 @@ def data_format():
     user_data["time"] = now.strftime("%I:%M:%S %p")
 
 
-def write_file():
-    # Write file into txt file
-
-    # open user_data file
-    f = open("user_data.txt", "a")
-    # Write data_format Dictionary to file
-    f.write(f"{str(user_data)}\n")
-    # write inputs to File
-    f.write(f"Balance: ${tot_dollars}\n")
-    f.close()
-
-
 # Print date
 date()
 # User Data Dictionary
@@ -126,11 +125,10 @@ acct = Deposit(dollars, cents)
 # Call box value for acct
 sep_acct(acct)
 
-# Build file to save data
-write_file()
 
 if __name__ == "__main__":
     handler = FileHandler("user_data.txt")
+    handler.write_file()
     handler.read_file()
     handler.last_bal()
     handler.bal_history()
