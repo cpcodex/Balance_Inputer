@@ -18,10 +18,10 @@ class Deposit:
 
 
 class FileHandler:
-    def __init__(self):
-        pass
+    def __init__(self, file_name):
+        self.file_name = file_name
 
-    def read_file():
+    def read_file(self):
         # Prompts the user to read the file and displays its contents if the user agrees.
         read_file = input(
             'Do you wish to read the saved file? "Yes" or "No" '
@@ -29,21 +29,21 @@ class FileHandler:
 
         if read_file == "Yes":
             # Read file
-            fr = open("user_data.txt", "r")
+            fr = open(self.file_name, "r")
             print(fr.read())
         elif read_file == "No":
             print("No problem, the file was saved to your directory!")
         else:
             print("Error reading file")
 
-    def last_bal():
+    def last_bal(self):
         # Prompts the user to read the last balance from the file and displays it if the user agrees.
         bal_input = input(
             'Do you wish to read the previous balance? "Yes" or "No" '
         ).capitalize()
 
         if bal_input == "Yes":
-            fr = open("user_data.txt", "r")
+            fr = open(self.file_name, "r")
             lines = fr.readlines()
             last_bal = lines[-1]
             print(last_bal)
@@ -52,14 +52,14 @@ class FileHandler:
         else:
             print("Error reading file")
 
-    def bal_history():
+    def bal_history(self):
         # Prompts the user to view balance history and displays it if the user agrees.
         bal_hist = input(
             'Do you want to view your balance history? "Yes" or "No" '
         ).capitalize()
 
         if bal_hist == "Yes":
-            fr = open("user_data.txt", "r")
+            fr = open(self.file_name, "r")
             lines = fr.readlines()
             for i in range(1, len(lines), 2):
                 print(lines[i].rstrip("\n"))
@@ -93,7 +93,7 @@ def data_format():
     user_data["time"] = now.strftime("%I:%M:%S %p")
 
 
-def write_text():
+def write_file():
     # Write file into txt file
 
     # open user_data file
@@ -127,13 +127,10 @@ acct = Deposit(dollars, cents)
 sep_acct(acct)
 
 # Build file to save data
-write_text()
+write_file()
 
-# Prompt to read file
-read_file()
-
-# Prompt for last balance
-last_bal()
-
-# Prompt for balance history
-bal_history()
+if __name__ == "__main__":
+    handler = FileHandler("user_data.txt")
+    handler.read_file()
+    handler.last_bal()
+    handler.bal_history()
