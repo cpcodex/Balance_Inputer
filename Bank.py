@@ -49,6 +49,22 @@ def date():
     print("Today is:", formatted_date)
 
 
+def read_file():
+    read_file = input('Do you wish to read the saved file? "Yes" or "No" ').capitalize()
+
+    if read_file == "Yes":
+        # Read file
+        fr = open("user_data.txt", "r")
+        lines = fr.readlines()
+        for i in range(1, len(lines), 2):
+            print(lines[i].rstrip("\n"))
+    elif read_file == "No":
+        print("No problem, the file was saved to your directory!")
+    else:
+        print("Error reading file")
+    fr.close()
+
+
 # Print date
 date()
 # User Data Dictionary
@@ -71,13 +87,5 @@ sep_acct(acct)
 # Build file to save data
 file_manager()
 
-read_file = input('Do you wish to read the saved file? "Yes" or "No" ').capitalize()
-
-if read_file == "Yes":
-    # Read file
-    fr = open("user_data.txt", "r")
-    fr.close()
-elif read_file == "No":
-    print("No problem, the file was saved to your directory!")
-else:
-    print("Error reading file")
+# Prompt to read file
+read_file()
