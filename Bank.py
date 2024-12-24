@@ -55,7 +55,7 @@ f = open("user_data.txt", "a")
 # Write data_format Dictionary to file
 f.write(f"{str(user_data)}\n")
 # write inputs to File
-f.write(f"${tot_dollars}\n")
+f.write(f"Balance: ${tot_dollars}\n")
 
 # Read file
 # fr = open("user_data.txt", "r")
