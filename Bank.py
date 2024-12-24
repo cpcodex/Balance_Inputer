@@ -1,8 +1,7 @@
-# NOTE: Build terminal bank acct application using class, functions, and loops for practice
-# from bank_data import data
+# NOTE: Note-bar is used to pick up where left off in previous session
+# NOTE:
 
 
-# TODO: Create classes
 class Deposit:
     def __init__(self, dol, cts):
         self.dollars = dol
