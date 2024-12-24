@@ -28,6 +28,7 @@ def data_format():
     user_data["first_name"] = input("Enter your First Name: ").capitalize()
     user_data["last_name"] = input("Enter your Last Name: ").capitalize()
     user_data["age"] = int(input("Enter your age: "))
+    user_data["date"] = today.strftime("%m/%d/%Y")
 
 
 def file_manager():
@@ -39,6 +40,7 @@ def file_manager():
     f.write(f"{str(user_data)}\n")
     # write inputs to File
     f.write(f"Balance: ${tot_dollars}\n")
+    f.close()
 
 
 def date():
@@ -47,6 +49,7 @@ def date():
     print("Today is:", formatted_date)
 
 
+# Print date
 date()
 # User Data Dictionary
 user_data = {}
@@ -68,6 +71,13 @@ sep_acct(acct)
 # Build file to save data
 file_manager()
 
-# Read file
-# fr = open("user_data.txt", "r")
-# print(fr.read)
+read_file = input('Do you wish to read the saved file? "Yes" or "No" ').capitalize()
+
+if read_file == "Yes":
+    # Read file
+    fr = open("user_data.txt", "r")
+    fr.close()
+elif read_file == "No":
+    print("No problem, the file was saved to your directory!")
+else:
+    print("Error reading file")
