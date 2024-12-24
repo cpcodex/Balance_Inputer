@@ -17,6 +17,58 @@ class Deposit:
         )
 
 
+class FileHandler:
+    def __init__(self):
+        pass
+
+    def read_file():
+        # Prompts the user to read the file and displays its contents if the user agrees.
+        read_file = input(
+            'Do you wish to read the saved file? "Yes" or "No" '
+        ).capitalize()
+
+        if read_file == "Yes":
+            # Read file
+            fr = open("user_data.txt", "r")
+            print(fr.read())
+        elif read_file == "No":
+            print("No problem, the file was saved to your directory!")
+        else:
+            print("Error reading file")
+
+    def last_bal():
+        # Prompts the user to read the last balance from the file and displays it if the user agrees.
+        bal_input = input(
+            'Do you wish to read the previous balance? "Yes" or "No" '
+        ).capitalize()
+
+        if bal_input == "Yes":
+            fr = open("user_data.txt", "r")
+            lines = fr.readlines()
+            last_bal = lines[-1]
+            print(last_bal)
+        elif bal_input == "No":
+            print("No problem, the file was saved to your directory!")
+        else:
+            print("Error reading file")
+
+    def bal_history():
+        # Prompts the user to view balance history and displays it if the user agrees.
+        bal_hist = input(
+            'Do you want to view your balance history? "Yes" or "No" '
+        ).capitalize()
+
+        if bal_hist == "Yes":
+            fr = open("user_data.txt", "r")
+            lines = fr.readlines()
+            for i in range(1, len(lines), 2):
+                print(lines[i].rstrip("\n"))
+        elif bal_hist == "No":
+            print("No problem, the file was saved to your directory!")
+        else:
+            print("Error reading file")
+
+
 def sep_acct(val):
     # Function to create box around output
     print("=" * 45)
@@ -51,51 +103,6 @@ def write_text():
     # write inputs to File
     f.write(f"Balance: ${tot_dollars}\n")
     f.close()
-
-
-def read_file():
-    read_file = input('Do you wish to read the saved file? "Yes" or "No" ').capitalize()
-
-    if read_file == "Yes":
-        # Read file
-        fr = open("user_data.txt", "r")
-        print(fr.read())
-    elif read_file == "No":
-        print("No problem, the file was saved to your directory!")
-    else:
-        print("Error reading file")
-
-
-def last_bal():
-    bal_input = input(
-        'Do you wish to read the previous balance? "Yes" or "No" '
-    ).capitalize()
-
-    if bal_input == "Yes":
-        fr = open("user_data.txt", "r")
-        lines = fr.readlines()
-        last_bal = lines[-1]
-        print(last_bal)
-    elif bal_input == "No":
-        print("No problem, the file was saved to your directory!")
-    else:
-        print("Error reading file")
-
-
-def bal_history():
-    bal_hist = input(
-        'Do you want to view your balance history? "Yes" or "No" '
-    ).capitalize()
-
-    if bal_hist == "Yes":
-        fr = open("user_data.txt", "r")
-        lines = fr.readlines()
-        for i in range(1, len(lines), 2):
-            print(lines[i].rstrip("\n"))
-    elif bal_hist == "No":
-        print("No problem, the file was saved to your directory!")
-    else:
-        print("Error reading file")
 
 
 # Print date
