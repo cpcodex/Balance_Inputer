@@ -60,11 +60,6 @@ class FileHandler:
         # Check input with contents
         if parameter in content:
             print("Input is in database:", f"'{parameter}'")
-            csplit = content.split()
-            # print(f"'{parameter}'")
-            # Pick file content
-            name_checker = csplit[1][1:-2:1] + " " + csplit[3][1:-2:1]
-            print(f"'{name_checker}'")
         elif parameter not in content:
             print(f"'{parameter}'", "is not in the file.")
         else:
