@@ -41,6 +41,7 @@ class FileHandler:
         if read_file == "Yes":
             # Read file
             fr = open(self.file_name, "r")
+            print()
             print(fr.read())
         elif read_file == "No":
             print("No problem, the file was saved to your directory!")
@@ -57,6 +58,7 @@ class FileHandler:
             fr = open(self.file_name, "r")
             lines = fr.readlines()
             last_bal = lines[-1]
+            print("=" * 45)
             print(last_bal)
         elif bal_input == "No":
             print("No problem, the file was saved to your directory!")
@@ -68,6 +70,7 @@ class FileHandler:
         bal_hist = input(
             'Do you want to view your balance history? "Yes" or "No" '
         ).capitalize()
+        print()
 
         if bal_hist == "Yes":
             fr = open(self.file_name, "r")
@@ -115,7 +118,7 @@ bal_calc = True
 data_format()
 # Inputs
 dollars = int(input("How many dollars do you have? "))
-cents = int(input("How much change do you have? "))
+cents = int(input("How much change do you have?"))
 # Collect User Input as strings
 tot_dollars = str(dollars) + "." + str(cents)
 
