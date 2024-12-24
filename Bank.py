@@ -1,5 +1,5 @@
-# NOTE: reconsider how we store and access data.
-# TODO: continue implementing data collection, access, and cleanup code
+# NOTE: struggling to access data reliably, could be due to txt file, instead of a JSON, so may need to change data format and use txt as a log system instead.
+# TODO: data collection and access. cleanup code. Logging system. Data Structure.
 from datetime import date, datetime
 
 today = date.today()
