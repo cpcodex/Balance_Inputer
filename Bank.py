@@ -146,9 +146,11 @@ bal_calc = True
 
 # Collect User Data
 data_format()
+
 # Inputs
 dollars = int(input("How many dollars are you depositing? "))
 cents = int(input("How much change do you have to deposit? "))
+
 # Collect User Input as strings
 tot_dollars = str(dollars) + "." + str(cents)
 
@@ -158,7 +160,7 @@ acct = Deposit(dollars, cents)
 # Call box value for acct
 sep_acct(acct)
 
-
+# Initiate the main file
 if __name__ == "__main__":
     handler = FileHandler("user_data.txt")
     handler.write_file()
