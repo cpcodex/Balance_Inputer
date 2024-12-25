@@ -74,15 +74,9 @@ if user_data_list:
         print(user)
 
     # Access specific data
-    # print("\nFirst user's first name:", user_data_list[5]["lname"])
+    print("\nLast user's first name:", user_data_list[-1]["first_name"])
+    print("Last user's last name:", user_data_list[-1]["last_name"])
 else:
     print("No data available.")
 
 save_user_data(file_path, user_data)
-# Write to JSON file
-# try:
-#     with open(file_path, "w") as json_file:
-#         json.dump(user_data, json_file, indent=4)  # Use indent for pretty printing
-#     print(f"Data saved to {file_path}")
-# except Exception as e:
-#     print(f"An error occurred: {e}")
