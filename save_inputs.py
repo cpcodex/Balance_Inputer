@@ -29,7 +29,7 @@ def save_user_data(file_name, user_data):
 
     # Write the updated data back to the file
     with open(file_name, "w") as json_file:
-        json.dump(data, json_file, indent=4)
+        json.dump(data, json_file)
     print(f"Data saved to {file_name}")
 
 
@@ -57,8 +57,8 @@ curr_time = now.strftime("%I:%M:%S %p")
 
 # Collect user input
 user_data = {
-    "fname": fname,
-    "lname": lname,
+    "first_name": fname,
+    "last_name": lname,
     "age": age,
     "date": tdate,
     "curr_time": curr_time,
@@ -74,12 +74,11 @@ if user_data_list:
         print(user)
 
     # Access specific data
-    print("\nFirst user's first name:", user_data_list[0]["fname"])
+    # print("\nFirst user's first name:", user_data_list[5]["lname"])
 else:
     print("No data available.")
 
 save_user_data(file_path, user_data)
-print(user_data[2])
 # Write to JSON file
 # try:
 #     with open(file_path, "w") as json_file:
