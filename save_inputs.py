@@ -34,9 +34,11 @@ def save_user_data(file_name, user_data):
 
 
 def read_user_data(file_name):
+    # read_user_data being utilized user user_data_list, reads file contents
+
     try:
-        with open(file_name, "r") as file:
-            data = json.load(file)  # Load JSON data into a Python list
+        with open(file_name, "r") as json_file:
+            data = json.load(json_file)  # Load JSON data into a Python list
             return data
     except FileNotFoundError:
         print("File not found.")
