@@ -47,8 +47,8 @@ def read_user_data(file_name):
 
 
 # User Inputs for user database
-fname = input("Enter your first name: ")
-lname = input("Enter your last name: ")
+fname = input("Enter your first name: ").capitalize()
+lname = input("Enter your last name: ").capitalize()
 age = int(input("Enter your age: "))
 
 # Set Time variables
