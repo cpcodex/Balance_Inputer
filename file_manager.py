@@ -58,6 +58,7 @@ def save_user_data(file_name):
     print(f"Data saved to {file_name}")
 
 
+# NOTE: not reading out user data
 def read_user_data(file_name):
     # read_user_data being utilized user user_data_list, reads file contents
 
