@@ -56,41 +56,54 @@ def save_user_data(file_name):
     with open(file_name, "w") as json_file:
         json.dump(data, json_file)
     print(f"Data saved to {file_name}")
+    return
 
 
-# NOTE: not reading out user data
+# BUG: Not calling this function
 def read_user_data(file_name):
     # read_user_data being utilized user user_data_list, reads file contents
 
-    try:
-        with open(file_name, "r") as json_file:
-            data = json.load(json_file)  # Load JSON data into a Python list
-            return data
-    except FileNotFoundError:
-        print("File not found.")
-        return []
-    except json.JSONDecodeError:
-        print("Error decoding JSON data.")
-        return []
+    # define data
+    input_data = data_inputs()
 
-        # Check and loop through contents
+    if os.path.exists(file_name):
+        try:
+            with open(file_name, "r") as json_file:
+                data = json.load(json_file)  # Load JSON data into a Python list
+                return data
+        except FileNotFoundError:
+            print("File not found.")
+            return []
+        except json.JSONDecodeError:
+            print("Error decoding JSON data.")
+            return []
+    else:
+        print("Error has occured in reading")
+
+    # BUG: bugged from here
+    # Check and loop through contents
     if file_path:
         print("All User Data:")
         for user in file_path:
             print(user)
 
         # Access specific data
-        print("\nLast user's first name:", user_data_list[-1]["first_name"])
-        print("Last user's last name:", user_data_list[-1]["last_name"])
+        print("\nLast user's first name:", input_data[-1]["first_name"])
+        print("Last user's last name:", input_data[-1]["last_name"])
     else:
         print("No data available.")
 
 
-# Save user data
-save_user_data(file_path)
+fix = input("Would you like to read or save this data? S or R ").capitalize()
 
-# Read user data
-read_user_data(file_path)
+if fix == "S":
+    # Save user data
+    save_user_data(file_path)
+elif fix == "R":
+    # Read user data
+    read_user_data(file_path)
+else:
+    print("No need to read this.")
 
 # # Set loop to true, False breaks/closes program
 # data_loop = True
