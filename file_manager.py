@@ -59,17 +59,22 @@ def save_user_data(file_name):
     return
 
 
-# BUG: Not calling this function
 def read_user_data(file_name):
     # read_user_data being utilized user user_data_list, reads file contents
-
-    # define data
-    input_data = data_inputs()
 
     if os.path.exists(file_name):
         try:
             with open(file_name, "r") as json_file:
                 data = json.load(json_file)  # Load JSON data into a Python list
+                print("All User Data:")
+                for user in data:
+                    print(user)
+
+                # access specific data if data exists
+                if data:
+                    last_user = data[-1]
+                    print("\nLast user's first name:", last_user["first_name"])
+                    print("Last user's last name:", last_user["last_name"])
                 return data
         except FileNotFoundError:
             print("File not found.")
@@ -79,19 +84,7 @@ def read_user_data(file_name):
             return []
     else:
         print("Error has occured in reading")
-
-    # BUG: bugged from here
-    # Check and loop through contents
-    if file_path:
-        print("All User Data:")
-        for user in file_path:
-            print(user)
-
-        # Access specific data
-        print("\nLast user's first name:", input_data[-1]["first_name"])
-        print("Last user's last name:", input_data[-1]["last_name"])
-    else:
-        print("No data available.")
+    return []
 
 
 fix = input("Would you like to read or save this data? S or R ").capitalize()
