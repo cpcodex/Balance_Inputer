@@ -161,10 +161,8 @@ def main():
     # Collect User Data
     data_format(user_data)
 
-    # Print collected user_inputs
+    # Define and print collected user_inputs
     acct = DepositHandler(dollars, cents)
-
-    # Call box value for acct
     sep_acct(acct)
 
     # handler
