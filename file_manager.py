@@ -125,7 +125,7 @@ def search_user_data(file_name, search_key):
 # ============================================================================= #
 while True:
     fix = input(
-        "Would you like to read, lookup, or save this data? S, L, or R "
+        "Would you like to read, lookup, save, or quit this data? S, L, Q, or R "
     ).capitalize()
 
     if fix == "S":
