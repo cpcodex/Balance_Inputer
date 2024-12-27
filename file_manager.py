@@ -1,6 +1,5 @@
 # NOTE: continue adding new methods and features to the data base.
 # TODO: create search by key for accessing database
-
 import json
 import os
 from datetime import date, datetime
@@ -77,7 +76,7 @@ def read_user_data(file_name):
                 if data:
                     last_user = data[-1]
                     print("\nLast user's first name:", last_user["first_name"])
-                    print("Last user's last name:", last_user[2])
+                    print("Last user's last name:", last_user["last_name"])
                 return data
         except FileNotFoundError:
             print("File not found.")
@@ -97,11 +96,14 @@ def search_user_data(file_name, search_key):
         with open(file_name, "r") as json_file:
             try:
                 data = json.load(json_file)
+
                 # prepare search list
                 results = []
                 for user in data:
+                    print(user)
                     if search_key in user:
                         results.append({search_key: user[search_key]})
+
                 if results:
                     print(f"Found {search_key}:")
                     for result in results:
@@ -109,6 +111,7 @@ def search_user_data(file_name, search_key):
                 else:
                     print(f"No users found with the key '{search_key}'.")
                 return results
+
             except json.JSONDecodeError:
                 print("Error decoding JSON data.")
                 return []
@@ -132,7 +135,7 @@ elif fix == "R":
     read_user_data(file_path)
 elif fix == "L":
     # search key in user data
-    search_key = input("Which would you like to search for? ").split
+    search_key = input("Which would you like to search for? ").split()
     search_user_data(file_path, search_key)
 else:
     print("ERROR")
