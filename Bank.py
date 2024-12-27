@@ -55,24 +55,6 @@ class FileHandler:
         else:
             print("Error reading file")
 
-    def find_file_param(self):
-        # Finds paramater inside .txt file to compare to database.
-        parameter = input("which file would you like to access? ")
-        print("=" * 45)
-
-        # Read file contents
-        fr = open(self.file_name, "r")
-        content = fr.read()
-
-        # Check input with contents
-        # NOTE: only prints if content is in database, not actual content
-        if parameter in content:
-            print("Input is in database:", f"'{parameter}'")
-        elif parameter not in content:
-            print(f"'{parameter}'", "is not in the file.")
-        else:
-            print("Error is present")
-
     def last_bal(self):
         # Prompts the user to read the last balance from the file and displays it if the user agrees.
         bal_input = input(
@@ -127,7 +109,6 @@ def date():
 
 def data_format(user_data):
     # Format data for file
-    # NOTE: rework data structure, inputs set to var before passing to user_data is needed, works for current testing though.
     fname = input("Enter your First Name: ").capitalize()
     lname = input("Enter your Last Name: ").capitalize()
     age = int(input("Enter your age: "))
@@ -166,12 +147,11 @@ def main():
     sep_acct(acct)
 
     # handler
-    handler = FileHandler("user_data.txt", user_data)
+    handler = FileHandler("user_data.txt")
     handler.write_file(user_data, tot_dollars)
     handler.read_file()
     handler.last_bal()
     handler.bal_history()
-    handler.find_file_param()
 
     return
 
