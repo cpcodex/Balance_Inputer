@@ -103,7 +103,6 @@ def search_user_data(file_name, search_key):
                     if search_key in user:
                         results.append({search_key: user[search_key]})
 
-                # BUG: returning all data, not specific dict list, might need return entire list when one specific search_key is called.
                 if results:
                     print(f"Found {search_key}:")
                     for index, result in enumerate(results, start=1):
@@ -136,7 +135,7 @@ while True:
         read_user_data(file_path)
     elif fix == "L":
         # search key in user data
-        search_key = input("Which would you like to search for? ").strip()
+        search_key = input("Which would you like to search for? ").strip().lower()
         search_user_data(file_path, search_key)
     elif fix == "Q":
         # Read user data
