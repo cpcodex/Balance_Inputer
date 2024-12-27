@@ -89,6 +89,7 @@ def read_user_data(file_name):
     return []
 
 
+# BUG: new bug present
 def search_user_data(file_name, search_key):
     # Search for a specific key in user data
 
@@ -100,10 +101,10 @@ def search_user_data(file_name, search_key):
                 # prepare search list
                 results = []
                 for user in data:
-                    print(user)
                     if search_key in user:
                         results.append({search_key: user[search_key]})
 
+                # BUG: returning all data, not specific dict list, might need return entire list when one specific search_key is called.
                 if results:
                     print(f"Found {search_key}:")
                     for result in results:
