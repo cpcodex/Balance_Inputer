@@ -1,3 +1,6 @@
+# NOTE: continue adding new methods and features to the data base.
+# TODO: create search by key for accessing database
+
 import json
 import os
 from datetime import date, datetime
@@ -56,7 +59,7 @@ def save_user_data(file_name):
     with open(file_name, "w") as json_file:
         json.dump(data, json_file)
     print(f"Data saved to {file_name}")
-    return
+    return []
 
 
 def read_user_data(file_name):
@@ -74,7 +77,7 @@ def read_user_data(file_name):
                 if data:
                     last_user = data[-1]
                     print("\nLast user's first name:", last_user["first_name"])
-                    print("Last user's last name:", last_user["last_name"])
+                    print("Last user's last name:", last_user[2])
                 return data
         except FileNotFoundError:
             print("File not found.")
@@ -87,16 +90,49 @@ def read_user_data(file_name):
     return []
 
 
+def search_user_data(file_name, search_key):
+    # Search for a specific key in user data
+
+    if os.path.exists(file_name):
+        with open(file_name, "r") as json_file:
+            try:
+                data = json.load(json_file)
+                # prepare search list
+                results = []
+                for user in data:
+                    if search_key in user:
+                        results.append({search_key: user[search_key]})
+                if results:
+                    print(f"Found {search_key}:")
+                    for result in results:
+                        print(result)
+                else:
+                    print(f"No users found with the key '{search_key}'.")
+                return results
+            except json.JSONDecodeError:
+                print("Error decoding JSON data.")
+                return []
+    else:
+        print("File not found or error in reading.")
+        return []
+
+
 # NOTE debugging NOTE
 # ============================================================================= #
 
-# fix = input("Would you like to read or save this data? S or R ").capitalize()
+fix = input(
+    "Would you like to read, lookup, or save this data? S, L, or R "
+).capitalize()
 
-# if fix == "S":
-#     # Save user data
-#     save_user_data(file_path)
-# elif fix == "R":
-#     # Read user data
-#     read_user_data(file_path)
-# else:
-#     print("No need to read this.")
+if fix == "S":
+    # Save user data
+    save_user_data(file_path)
+elif fix == "R":
+    # Read user data
+    read_user_data(file_path)
+elif fix == "L":
+    # search key in user data
+    search_key = input("Which would you like to search for? ").split
+    search_user_data(file_path, search_key)
+else:
+    print("ERROR")
