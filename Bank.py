@@ -6,14 +6,14 @@ from datetime import date, datetime
 today = date.today()
 now = datetime.now()
 
-# This runs program, saves file, then moves onto main script moving forward.
+# This runs programfile_manager.py from import, saves file, then moves onto main script moving forward.
 # file_name = file_manager.file_path
 # file_manager.save_user_data(file_name)
 # file_manager.read_user_data(file_name)
 # print("=" * 50)
 
 
-class Deposit:
+class DepositHandler:
     def __init__(self, dol, cts):
         self.dollars = dol
         self.cents = cts
@@ -25,10 +25,12 @@ class Deposit:
 
 
 class FileHandler:
-    def __init__(self, file_name):
+    def __init__(self, file_name, user_data, tot_dollars):
         self.file_name = file_name
+        self.user_data = user_data
+        self.tot_dollars = tot_dollars
 
-    def write_file(self):
+    def write_file(self, user_data, tot_dollars):
         # Write file into txt file
 
         # open user_data file
@@ -65,6 +67,7 @@ class FileHandler:
         content = fr.read()
 
         # Check input with contents
+        # NOTE: only prints if content is in database, not actual content
         if parameter in content:
             print("Input is in database:", f"'{parameter}'")
         elif parameter not in content:
@@ -121,9 +124,10 @@ def date():
     formatted_time = now.strftime("%I:%M:%S %p")
     print("Today is:", formatted_date)
     print("It is currently:", formatted_time)
+    return date
 
 
-def data_format():
+def data_format(user_data):
     # Format data for file
     # NOTE: rework data structure, inputs set to var before passing to user_data is needed, works for current testing though.
     fname = input("Enter your First Name: ").capitalize()
@@ -138,40 +142,51 @@ def data_format():
     user_data["age"] = age
     user_data["date"] = date
     user_data["time"] = curr_time
+    return user_data
 
 
 def user_input():
     pass
 
 
-# Print date
-date()
-# User Data Dictionary
-user_data = {}
-# Set app to true
-bal_calc = True
+def main():
 
-# Collect User Data
-data_format()
+    # Print date
+    date()
 
-# Inputs
-dollars = int(input("How many dollars are you depositing? "))
-cents = int(input("How much change do you have to deposit? "))
+    # User Data Dictionary
+    user_data = {}
 
-# Collect User Input as strings
-tot_dollars = str(dollars) + "." + str(cents)
+    # Collect User Data
+    data_format(user_data)
 
-# Print collected user_inputs
-acct = Deposit(dollars, cents)
+    # Inputs
+    dollars = int(input("How many dollars are you depositing? "))
+    cents = int(input("How much change do you have to deposit? "))
 
-# Call box value for acct
-sep_acct(acct)
+    # Collect User Input as strings
+    tot_dollars = str(dollars) + "." + str(cents)
 
-# Initiate the main file
-if __name__ == "__main__":
-    handler = FileHandler("user_data.txt")
-    handler.write_file()
+    # Print collected user_inputs
+    acct = DepositHandler(dollars, cents)
+
+    # Call box value for acct
+    sep_acct(acct)
+
+    # handler
+    handler = FileHandler("user_data.txt", user_data, tot_dollars)
+    handler.write_file(user_data, tot_dollars)
     handler.read_file()
     handler.last_bal()
     handler.bal_history()
     handler.find_file_param()
+
+    return (
+        user_data,
+        tot_dollars,
+    )
+
+
+# Initiate the main file
+if __name__ == "__main__":
+    main()
