@@ -33,7 +33,7 @@ def data_inputs():
 
 
 def save_user_data(file_name):
-    # Saves user data to JSON file
+    # Saves user data to JSON file, call save_user_data(file_path)
 
     # define data
     input_data = data_inputs()
@@ -60,7 +60,7 @@ def save_user_data(file_name):
 
 
 def read_user_data(file_name):
-    # read_user_data being utilized user user_data_list, reads file contents
+    # read_user_data with call read_user_data(file_path)
 
     if os.path.exists(file_name):
         try:
@@ -97,40 +97,3 @@ elif fix == "R":
     read_user_data(file_path)
 else:
     print("No need to read this.")
-
-# # Set loop to true, False breaks/closes program
-# data_loop = True
-# while data_loop == True:
-#     # Loop through inputs to choose action
-
-#     # User Input
-#     user_input = "What would you like to do? "
-
-#     # check user_input
-#     if user_input == "A":
-#         # Add user data
-#         pass
-#         #  User Inputs for user database
-#         # fname = input("Enter your first name: ").capitalize()
-#         # lname = input("Enter your last name: ").capitalize()
-#         # age = int(input("Enter your age: "))
-
-#     elif user_input == "R":
-#         # Read user data
-
-#         pass
-
-#     elif user_input == "C":
-#         # Call specific data
-
-#         pass
-
-#     else:
-#         print(
-#             "Invalid input, please try again.\n",
-#             "You may choose between:\n",
-#             '- "A" to add data\n',
-#             '- "R" to read data\n',
-#             '- "C" to call specific data\n',
-#             '- "Q" to quit the program\n',
-#         )
