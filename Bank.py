@@ -25,10 +25,8 @@ class DepositHandler:
 
 
 class FileHandler:
-    def __init__(self, file_name, user_data, tot_dollars):
+    def __init__(self, file_name):
         self.file_name = file_name
-        self.user_data = user_data
-        self.tot_dollars = tot_dollars
 
     def write_file(self, user_data, tot_dollars):
         # Write file into txt file
@@ -145,10 +143,6 @@ def data_format(user_data):
     return user_data
 
 
-def user_input():
-    pass
-
-
 def main():
 
     # Print date
@@ -157,15 +151,15 @@ def main():
     # User Data Dictionary
     user_data = {}
 
-    # Collect User Data
-    data_format(user_data)
-
     # Inputs
     dollars = int(input("How many dollars are you depositing? "))
     cents = int(input("How much change do you have to deposit? "))
 
     # Collect User Input as strings
     tot_dollars = str(dollars) + "." + str(cents)
+
+    # Collect User Data
+    data_format(user_data)
 
     # Print collected user_inputs
     acct = DepositHandler(dollars, cents)
@@ -174,17 +168,14 @@ def main():
     sep_acct(acct)
 
     # handler
-    handler = FileHandler("user_data.txt", user_data, tot_dollars)
+    handler = FileHandler("user_data.txt", user_data)
     handler.write_file(user_data, tot_dollars)
     handler.read_file()
     handler.last_bal()
     handler.bal_history()
     handler.find_file_param()
 
-    return (
-        user_data,
-        tot_dollars,
-    )
+    return
 
 
 # Initiate the main file

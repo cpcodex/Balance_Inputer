@@ -24,8 +24,8 @@ def data_inputs():
 
     # Template user data
     user_data = {
-        "first_name": fname,
-        "last_name": lname,
+        "firstname": fname,
+        "lastname": lname,
         "age": age,
         "input_date": tdate,
         "input_time": input_time,
@@ -75,8 +75,8 @@ def read_user_data(file_name):
                 # access specific data if data exists
                 if data:
                     last_user = data[-1]
-                    print("\nLast user's first name:", last_user["first_name"])
-                    print("Last user's last name:", last_user["last_name"])
+                    print("\nLast user's first name:", last_user["firstname"])
+                    print("Last user's last name:", last_user["lastname"])
                 return data
         except FileNotFoundError:
             print("File not found.")
@@ -123,20 +123,24 @@ def search_user_data(file_name, search_key):
 
 # NOTE debugging NOTE
 # ============================================================================= #
+while True:
+    fix = input(
+        "Would you like to read, lookup, or save this data? S, L, or R "
+    ).capitalize()
 
-fix = input(
-    "Would you like to read, lookup, or save this data? S, L, or R "
-).capitalize()
-
-if fix == "S":
-    # Save user data
-    save_user_data(file_path)
-elif fix == "R":
-    # Read user data
-    read_user_data(file_path)
-elif fix == "L":
-    # search key in user data
-    search_key = input("Which would you like to search for? ").strip()
-    search_user_data(file_path, search_key)
-else:
-    print("ERROR")
+    if fix == "S":
+        # Save user data
+        save_user_data(file_path)
+    elif fix == "R":
+        # Read user data
+        read_user_data(file_path)
+    elif fix == "L":
+        # search key in user data
+        search_key = input("Which would you like to search for? ").strip()
+        search_user_data(file_path, search_key)
+    elif fix == "Q":
+        # Read user data
+        print("Exiting input debugger...")
+        break
+    else:
+        print("ERROR")
