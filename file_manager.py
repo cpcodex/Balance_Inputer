@@ -60,7 +60,7 @@ def save_user_data(file_name):
 
 
 def read_user_data(file_name):
-    # read_user_data with call read_user_data(file_path)
+    # read user data, call read_user_data(file_path)
 
     if os.path.exists(file_name):
         try:
@@ -87,13 +87,16 @@ def read_user_data(file_name):
     return []
 
 
-fix = input("Would you like to read or save this data? S or R ").capitalize()
+# NOTE debugging NOTE
+# ============================================================================= #
 
-if fix == "S":
-    # Save user data
-    save_user_data(file_path)
-elif fix == "R":
-    # Read user data
-    read_user_data(file_path)
-else:
-    print("No need to read this.")
+# fix = input("Would you like to read or save this data? S or R ").capitalize()
+
+# if fix == "S":
+#     # Save user data
+#     save_user_data(file_path)
+# elif fix == "R":
+#     # Read user data
+#     read_user_data(file_path)
+# else:
+#     print("No need to read this.")
