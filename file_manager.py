@@ -107,7 +107,7 @@ def search_user_data(file_name, search_key):
                 if results:
                     print(f"Found {search_key}:")
                     for result in results:
-                        print(result)
+                        print(result.get(search_key))
                 else:
                     print(f"No users found with the key '{search_key}'.")
                 return results
@@ -135,7 +135,7 @@ elif fix == "R":
     read_user_data(file_path)
 elif fix == "L":
     # search key in user data
-    search_key = input("Which would you like to search for? ").split()
+    search_key = input("Which would you like to search for? ").strip()
     search_user_data(file_path, search_key)
 else:
     print("ERROR")
