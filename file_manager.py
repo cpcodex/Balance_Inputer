@@ -89,7 +89,6 @@ def read_user_data(file_name):
     return []
 
 
-# BUG: new bug present
 def search_user_data(file_name, search_key):
     # Search for a specific key in user data
 
@@ -107,8 +106,9 @@ def search_user_data(file_name, search_key):
                 # BUG: returning all data, not specific dict list, might need return entire list when one specific search_key is called.
                 if results:
                     print(f"Found {search_key}:")
-                    for result in results:
-                        print(result.get(search_key))
+                    for index, result in enumerate(results, start=1):
+                        print(f"{index}: {result.get(search_key)}")
+
                 else:
                     print(f"No users found with the key '{search_key}'.")
                 return results
