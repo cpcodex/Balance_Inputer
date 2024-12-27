@@ -1,9 +1,16 @@
-# NOTE: struggling to access data reliably, could be due to txt file, instead of a JSON, so may need to change data format and use txt as a log system instead.
-# TODO: data collection and access. cleanup code. Logging system. Data Structure.
+# NOTE: file_manage.py successful stores and reads data from JSON file, consider using file_manager for data access over the txt, utilize txt as a logger!!
+# TODO: implement file_manager, cleanup code. txt Logging system. Plan out system UI.
+# import file_manager
 from datetime import date, datetime
 
 today = date.today()
 now = datetime.now()
+
+# This runs program, saves file, then moves onto main script moving forward.
+# file_name = file_manager.file_path
+# file_manager.save_user_data(file_name)
+# file_manager.read_user_data(file_name)
+# print("=" * 50)
 
 
 class Deposit:
