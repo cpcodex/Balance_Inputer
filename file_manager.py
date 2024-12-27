@@ -27,8 +27,8 @@ def data_inputs():
         "firstname": fname,
         "lastname": lname,
         "age": age,
-        "input_date": tdate,
-        "input_time": input_time,
+        "date": tdate,
+        "time": input_time,
     }
 
     return user_data
