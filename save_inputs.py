@@ -10,8 +10,33 @@ now = datetime.now()
 file_path = "user_data.json"
 
 
-def save_user_data(file_name, user_data):
+def data_inputs():
+    # User Inputs for user database
+    fname = input("Enter your first name: ").capitalize()
+    lname = input("Enter your last name: ").capitalize()
+    age = int(input("Enter your age: "))
+
+    # Set Time variables
+    tdate = today.strftime("%m/%d/%Y")
+    input_time = now.strftime("%I:%M:%S %p")
+
+    # Template user data
+    user_data = {
+        "first_name": fname,
+        "last_name": lname,
+        "age": age,
+        "input_date": tdate,
+        "input_time": input_time,
+    }
+
+    return user_data
+
+
+def save_user_data(file_name):
     # Saves user data to JSON file
+
+    # define data
+    input_data = data_inputs()
 
     if os.path.exists(file_name):
         with open(file_name, "r") as json_file:
@@ -25,7 +50,7 @@ def save_user_data(file_name, user_data):
         data = []  # Start with an empty list if the file doesn't exist
 
     # Append the new user data
-    data.append(user_data)
+    data.append(input_data)
 
     # Write the updated data back to the file
     with open(file_name, "w") as json_file:
@@ -47,38 +72,58 @@ def read_user_data(file_name):
         print("Error decoding JSON data.")
         return []
 
+        # Check and loop through contents
+    if file_path:
+        print("All User Data:")
+        for user in file_path:
+            print(user)
 
-# User Inputs for user database
-fname = input("Enter your first name: ").capitalize()
-lname = input("Enter your last name: ").capitalize()
-age = int(input("Enter your age: "))
+        # Access specific data
+        print("\nLast user's first name:", user_data_list[-1]["first_name"])
+        print("Last user's last name:", user_data_list[-1]["last_name"])
+    else:
+        print("No data available.")
 
-# Set Time variables
-tdate = today.strftime("%m/%d/%Y")
-curr_time = now.strftime("%I:%M:%S %p")
 
-# Collect user input
-user_data = {
-    "first_name": fname,
-    "last_name": lname,
-    "age": age,
-    "date": tdate,
-    "curr_time": curr_time,
-}
+# Save user data
+save_user_data(file_path)
 
-# Define User Data List
-user_data_list = read_user_data(file_path)
+# Read user data
+read_user_data(file_path)
 
-# Check and loop through contents
-if user_data_list:
-    print("All User Data:")
-    for user in user_data_list:
-        print(user)
+# # Set loop to true, False breaks/closes program
+# data_loop = True
+# while data_loop == True:
+#     # Loop through inputs to choose action
 
-    # Access specific data
-    print("\nLast user's first name:", user_data_list[-1]["first_name"])
-    print("Last user's last name:", user_data_list[-1]["last_name"])
-else:
-    print("No data available.")
+#     # User Input
+#     user_input = "What would you like to do? "
 
-save_user_data(file_path, user_data)
+#     # check user_input
+#     if user_input == "A":
+#         # Add user data
+#         pass
+#         #  User Inputs for user database
+#         # fname = input("Enter your first name: ").capitalize()
+#         # lname = input("Enter your last name: ").capitalize()
+#         # age = int(input("Enter your age: "))
+
+#     elif user_input == "R":
+#         # Read user data
+
+#         pass
+
+#     elif user_input == "C":
+#         # Call specific data
+
+#         pass
+
+#     else:
+#         print(
+#             "Invalid input, please try again.\n",
+#             "You may choose between:\n",
+#             '- "A" to add data\n',
+#             '- "R" to read data\n',
+#             '- "C" to call specific data\n',
+#             '- "Q" to quit the program\n',
+#         )
