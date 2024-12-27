@@ -75,8 +75,11 @@ def read_user_data(file_name):
                 # access specific data if data exists
                 if data:
                     last_user = data[-1]
-                    print("\nLast user's first name:", last_user["firstname"])
-                    print("Last user's last name:", last_user["lastname"])
+                    print(
+                        "\nLast user:",
+                        last_user["firstname"],
+                        last_user["lastname"],
+                    )
                 return data
         except FileNotFoundError:
             print("File not found.")
