@@ -4,10 +4,6 @@ import json
 import os
 from datetime import date, datetime
 
-# Time variables
-today = date.today()
-now = datetime.now()
-
 # Specify the file path
 file_path = "user_data.json"
 
@@ -19,6 +15,8 @@ def data_inputs():
     age = int(input("Enter your age: "))
 
     # Set Time variables
+    today = date.today()
+    now = datetime.now()
     tdate = today.strftime("%m/%d/%Y")
     input_time = now.strftime("%I:%M:%S %p")
 
