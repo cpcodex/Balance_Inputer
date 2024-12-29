@@ -1,37 +1,36 @@
 import file_manager
 
+# define file_manager for ease of use
 file_name = file_manager.file_path
-file_manager.save_user_data(file_name)
-file_manager.read_user_data(file_name)
-file_manager.search_user_data(file_name)
-
-print("=" * 50)
+save = file_manager.save_user_data(file_name)
+read = file_manager.read_user_data(file_name)
+search = file_manager.search_user_data(file_name)
+seperator = print("=" * 50)
 
 
 def main():
-    # NOTE debugging NOTE
-    # ============================================================================= #
+    # Run while loop to begin program
     while True:
         fix = input(
-            "Would you like to read, lookup, save, or quit this data? S, L, Q, or R "
+            "Would you like to read, lookup, or save this data? R, L, or S.\n "
+            "You may also input 'Q' to quit the program. "
         ).capitalize()
 
         if fix == "S":
             # Save user data
-            save_user_data(file_path)
+            save(file_name)
         elif fix == "R":
             # Read user data
-            read_user_data(file_path)
+            read(file_name)
         elif fix == "L":
-            # search key in user data
-            search_key = input("Which would you like to search for? ").strip().lower()
-            search_user_data(file_path, search_key)
+            # search user data
+            search(file_name)
         elif fix == "Q":
-            # Read user data
+            # Quit program
             print("Exiting input debugger...")
             break
         else:
-            print("ERROR")
+            print("INPUT ERROR!")
 
 
 # Initiate the main file
