@@ -10,7 +10,7 @@ def data_seperator():
 file_name = file_manager.file_path
 
 
-def start():
+def introduction():
     print(
         " Welcome to the Terminal Bank Account.\n",
         data_seperator(),
@@ -19,7 +19,8 @@ def start():
     )
 
 
-start()
+# Print program introduction
+introduction()
 
 
 def main():
