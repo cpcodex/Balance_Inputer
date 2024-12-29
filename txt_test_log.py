@@ -1,10 +1,13 @@
-# NOTE: file_manage.py successful stores and reads data from JSON file, consider using file_manager for data access over the txt, utilize txt as a logger!!
-# TODO: implement file_manager, cleanup code. txt Logging system. Plan out system UI.
-# import file_manager
+# app.py is the main source, this file is for data access over the .txt file type for practice.
+# This could be used in the future as a logger of some type, but needs to be further worked on and refactored, very messy.
+
 from datetime import date, datetime
 
 today = date.today()
 now = datetime.now()
+
+# Specify the file path
+file_path = "user_data.json"
 
 
 class DepositHandler:
@@ -147,8 +150,7 @@ def main():
     handler.last_bal()
     handler.bal_history()
 
-    return
 
-
-# Specify the file path
-file_path = "user_data.json"
+# Initiate the main file
+if __name__ == "__main__":
+    main()
