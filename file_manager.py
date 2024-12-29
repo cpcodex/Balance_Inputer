@@ -5,6 +5,10 @@ import os
 from datetime import date, datetime
 
 
+# Specify the file path
+file_path = "user_data.json"
+
+
 def data_inputs():
     # User Inputs for user database
     fname = input("Enter your first name: ").capitalize()
@@ -119,34 +123,3 @@ def search_user_data(file_name):
     else:
         print("File not found or error in reading.")
         return []
-
-
-def main():
-    # NOTE debugging NOTE
-    # ============================================================================= #
-    while True:
-        fix = input(
-            "Would you like to read, lookup, save, or quit this data? S, L, Q, or R "
-        ).capitalize()
-
-        if fix == "S":
-            # Save user data
-            save_user_data(file_path)
-        elif fix == "R":
-            # Read user data
-            read_user_data(file_path)
-        elif fix == "L":
-            search_user_data(file_path)
-        elif fix == "Q":
-            # Read user data
-            print("Exiting input debugger...")
-            break
-        else:
-            print("ERROR")
-
-
-# Initiate the main file
-if __name__ == "__main__":
-    # Specify the file path
-    file_path = "user_data.json"
-    main()
