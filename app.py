@@ -28,7 +28,7 @@ def main():
     while True:
 
         # input used to access program
-        fix = input("Would you like to read, lookup, or save the data?\n").capitalize()
+        fix = input("What would you like to do?\n").capitalize()
 
         if fix == "S":
             # Save user data
