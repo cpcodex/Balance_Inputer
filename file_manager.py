@@ -28,11 +28,17 @@ def data_inputs():
 
     # Template user data
     user_data = {
-        "firstname": fname,
-        "lastname": lname,
-        "age": age,
-        "date": tdate,
-        "time": input_time,
+        "user": {
+            "firstname": fname,
+            "lastname": lname,
+            "age": age,
+        },
+        "creation": [
+            {
+                "date": tdate,
+                "time": input_time,
+            }
+        ],
     }
 
     return user_data
@@ -74,16 +80,18 @@ def read_user_data(file_name):
             with open(file_name, "r") as json_file:
                 data = json.load(json_file)  # Load JSON data into a Python list
                 print("All User Data:")
+
                 for user in data:
                     print(user)
 
                 # access specific data if data exists
                 if data:
                     last_user = data[-1]
+                    print(last_user)
                     print(
                         "\nLast user:",
-                        last_user["firstname"],
-                        last_user["lastname"],
+                        last_user["user"]["firstname"],
+                        last_user["user"]["lastname"],
                     )
                     data_seperator()
                 return data
