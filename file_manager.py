@@ -9,6 +9,10 @@ from datetime import date, datetime
 file_path = "user_data.json"
 
 
+def data_seperator():
+    print("=" * 40)
+
+
 def data_inputs():
     # User Inputs for user database
     fname = input("Enter your first name: ").capitalize()
