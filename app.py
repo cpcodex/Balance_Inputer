@@ -3,10 +3,8 @@ import file_manager
 file_name = file_manager.file_path
 file_manager.save_user_data(file_name)
 file_manager.read_user_data(file_name)
-file_manager.search_user_data(file_name, search_key)
+file_manager.search_user_data(file_name)
 
-search_key = input("Which would you like to search for? ").strip().lower()
-search_user_data(file_path, search_key)
 print("=" * 50)
 
 
