@@ -150,9 +150,5 @@ def main():
     return
 
 
-# Initiate the main file
-if __name__ == "__main__":
-    main()
-
 # Specify the file path
 file_path = "user_data.json"

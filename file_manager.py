@@ -1,5 +1,3 @@
-# NOTE: continue adding new methods and features to the data base.
-# TODO: create search by key for accessing database
 import json
 import os
 from datetime import date, datetime
@@ -10,6 +8,7 @@ file_path = "user_data.json"
 
 
 def data_seperator():
+    # Seperator
     print("=" * 40)
 
 
@@ -20,7 +19,7 @@ def data_inputs():
     age = int(input("Enter your age: "))
 
     # Set Time variables
-    today = date.today()
+    today = date.today().strftime("%m/%d/%Y")
     now = datetime.now()
     tdate = today.strftime("%m/%d/%Y")
     input_time = now.strftime("%I:%M:%S %p")
