@@ -9,7 +9,8 @@ file_path = "user_data.json"
 
 def data_seperator():
     # Seperator
-    return "=" * 40
+    print("=" * 40)
+    return
 
 
 # TODO: build new data input structure
@@ -20,7 +21,7 @@ def data_inputs():
     age = int(input("Enter your age: "))
 
     # Set Time variables
-    today = date.today().strftime("%m/%d/%Y")
+    today = date.today()
     now = datetime.now()
     tdate = today.strftime("%m/%d/%Y")
     input_time = now.strftime("%I:%M:%S %p")
@@ -61,6 +62,7 @@ def save_user_data(file_name):
     with open(file_name, "w") as json_file:
         json.dump(data, json_file)
     print(f"Data saved to {file_name}")
+    data_seperator()
     return []
 
 
@@ -83,15 +85,19 @@ def read_user_data(file_name):
                         last_user["firstname"],
                         last_user["lastname"],
                     )
+                    data_seperator()
                 return data
         except FileNotFoundError:
             print("File not found.")
+            data_seperator()
             return []
         except json.JSONDecodeError:
             print("Error decoding JSON data.")
+            data_seperator()
             return []
     else:
         print("Error has occured in reading")
+        data_seperator()
     return []
 
 
@@ -116,14 +122,18 @@ def search_user_data(file_name):
                     print(f"Found {search_key}:")
                     for index, result in enumerate(results, start=1):
                         print(f"{index}: {result.get(search_key)}")
+                    data_seperator()
 
                 else:
                     print(f"No users found with the key '{search_key}'.")
+                    data_seperator()
                 return results
 
             except json.JSONDecodeError:
                 print("Error decoding JSON data.")
+                data_seperator()
                 return []
     else:
         print("File not found or error in reading.")
+        data_seperator()
         return []
