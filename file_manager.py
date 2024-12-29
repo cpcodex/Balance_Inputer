@@ -13,7 +13,6 @@ def data_seperator():
     return
 
 
-# TODO: build new data input structure
 def data_inputs():
     # User Inputs for user database
     fname = input("Enter your first name: ").capitalize()
@@ -80,14 +79,12 @@ def read_user_data(file_name):
             with open(file_name, "r") as json_file:
                 data = json.load(json_file)  # Load JSON data into a Python list
                 print("All User Data:")
-
                 for user in data:
                     print(user)
 
                 # access specific data if data exists
                 if data:
                     last_user = data[-1]
-                    print(last_user)
                     print(
                         "\nLast user:",
                         last_user["user"]["firstname"],
