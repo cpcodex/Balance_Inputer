@@ -5,13 +5,24 @@ import file_manager
 file_name = file_manager.file_path
 
 
+def start():
+    print(
+        " Welcome to the Terminal Bank Account.\n",
+        file_manager.data_seperator(),
+        "\n You can input 'R' to Read, 'L' to Lookup, or 'S' to Save from the data file.\n"
+        " You may also input 'Q' to quit the program.\n",
+    )
+
+
 def main():
-    # Run while loop to begin program
+    # Run
     while True:
-        fix = input(
-            "Would you like to read, lookup, or save this data? R, L, or S.\n"
-            "You may also input 'Q' to quit the program.\n"
-        ).capitalize()
+        # while loop to begin program
+        start()
+
+        # input used to access program
+        fix = input("Would you like to read, lookup, or save the data?\n").capitalize()
+
         file_manager.data_seperator()
 
         if fix == "S":

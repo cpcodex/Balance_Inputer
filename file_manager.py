@@ -9,9 +9,10 @@ file_path = "user_data.json"
 
 def data_seperator():
     # Seperator
-    print("=" * 40)
+    return "=" * 40
 
 
+# TODO: build new data input structure
 def data_inputs():
     # User Inputs for user database
     fname = input("Enter your first name: ").capitalize()
