@@ -6,12 +6,6 @@ from datetime import date, datetime
 today = date.today()
 now = datetime.now()
 
-# This runs programfile_manager.py from import, saves file, then moves onto main script moving forward.
-# file_name = file_manager.file_path
-# file_manager.save_user_data(file_name)
-# file_manager.read_user_data(file_name)
-# print("=" * 50)
-
 
 class DepositHandler:
     def __init__(self, dol, cts):
@@ -159,3 +153,6 @@ def main():
 # Initiate the main file
 if __name__ == "__main__":
     main()
+
+# Specify the file path
+file_path = "user_data.json"

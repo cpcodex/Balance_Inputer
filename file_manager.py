@@ -4,9 +4,6 @@ import json
 import os
 from datetime import date, datetime
 
-# Specify the file path
-file_path = "user_data.json"
-
 
 def data_inputs():
     # User Inputs for user database
@@ -90,8 +87,11 @@ def read_user_data(file_name):
     return []
 
 
-def search_user_data(file_name, search_key):
+def search_user_data(file_name):
     # Search for a specific key in user data
+
+    # search key in user data
+    search_key = input("Which would you like to search for? ").strip().lower()
 
     if os.path.exists(file_name):
         with open(file_name, "r") as json_file:
@@ -121,26 +121,32 @@ def search_user_data(file_name, search_key):
         return []
 
 
-# NOTE debugging NOTE
-# ============================================================================= #
-# while True:
-#     fix = input(
-#         "Would you like to read, lookup, save, or quit this data? S, L, Q, or R "
-#     ).capitalize()
+def main():
+    # NOTE debugging NOTE
+    # ============================================================================= #
+    while True:
+        fix = input(
+            "Would you like to read, lookup, save, or quit this data? S, L, Q, or R "
+        ).capitalize()
 
-#     if fix == "S":
-#         # Save user data
-#         save_user_data(file_path)
-#     elif fix == "R":
-#         # Read user data
-#         read_user_data(file_path)
-#     elif fix == "L":
-#         # search key in user data
-#         search_key = input("Which would you like to search for? ").strip().lower()
-#         search_user_data(file_path, search_key)
-#     elif fix == "Q":
-#         # Read user data
-#         print("Exiting input debugger...")
-#         break
-#     else:
-#         print("ERROR")
+        if fix == "S":
+            # Save user data
+            save_user_data(file_path)
+        elif fix == "R":
+            # Read user data
+            read_user_data(file_path)
+        elif fix == "L":
+            search_user_data(file_path)
+        elif fix == "Q":
+            # Read user data
+            print("Exiting input debugger...")
+            break
+        else:
+            print("ERROR")
+
+
+# Initiate the main file
+if __name__ == "__main__":
+    # Specify the file path
+    file_path = "user_data.json"
+    main()
