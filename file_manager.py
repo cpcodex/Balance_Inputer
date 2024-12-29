@@ -93,8 +93,6 @@ def read_user_data(file_name):
                         "\nLast user:",
                         last_user["user"]["firstname"],
                         last_user["user"]["lastname"],
-                    )
-                    print(
                         "\nBalance:",
                         last_user["user"]["balance"],
                     )
