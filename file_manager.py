@@ -18,6 +18,11 @@ def data_inputs():
     fname = input("Enter your first name: ").capitalize()
     lname = input("Enter your last name: ").capitalize()
     age = int(input("Enter your age: "))
+    dol = int(input("Enter your dollar value: (ex.'432','43') "))
+    cent = int(input("Enter your change value: (ex.'00','34') "))
+
+    # Convert to balance format
+    balance = str(dol) + "." + str(cent)
 
     # Set Time variables
     today = date.today()
@@ -31,13 +36,12 @@ def data_inputs():
             "firstname": fname,
             "lastname": lname,
             "age": age,
+            "balance": balance,
         },
-        "creation": [
-            {
-                "date": tdate,
-                "time": input_time,
-            }
-        ],
+        "creation": {
+            "date": tdate,
+            "time": input_time,
+        },
     }
 
     return user_data
@@ -89,6 +93,10 @@ def read_user_data(file_name):
                         "\nLast user:",
                         last_user["user"]["firstname"],
                         last_user["user"]["lastname"],
+                    )
+                    print(
+                        "\nBalance:",
+                        last_user["user"]["balance"],
                     )
                     data_seperator()
                 return data
