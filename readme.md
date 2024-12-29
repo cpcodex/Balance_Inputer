@@ -1,4 +1,4 @@
-# Terminal Bank Balance Tracker, JSON/txt
+# Balance Tracker, JSON/txt
 
 This program folder is a quick write up for practice with JSON and txt file types, taking in inputs and saving them to local files.
 
